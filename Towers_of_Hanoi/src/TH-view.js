@@ -47,8 +47,22 @@ class View{
           alert('you done screwed up')
         }
         this.pile = null;
+        if (gameOver()) {
+          alert('you win!')
+        }
       } else {
         this.pile = $(e.currentTarget)
+      }
+    })
+  }
+
+  gameOver() {
+    let towers = $(".tower");
+    towers.each(tower => {
+      if (tower.length === 3 && tower.attr('id') != 'tower-1'){
+        return true;
+      } else {
+        return false;
       }
     })
   }
